@@ -2,3 +2,15 @@
   text-align: center;
 }
 
+.pitch-options {
+  margin: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  
+}
+
+.current-count {
+  margin: 10px;
+  display: flex;
+  justify-content: space-evenly;
+}

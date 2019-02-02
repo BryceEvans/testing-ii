@@ -49,11 +49,11 @@ class Display extends React.Component {
           foul={this.incrementFoul}
           hit={this.incrementHit}
           />
-          <div>
-            Strikes: {this.state.strikes}
-            Balls: {this.state.balls}
-            Fouls: {this.state.fouls}
-            Hits: {this.state.hits}
+          <div className='current-count'>
+            <h1>Strikes: {this.state.strikes}</h1>
+            <h1>Balls: {this.state.balls}</h1>
+            <h1>Fouls: {this.state.fouls}</h1>
+            <h1>Hits: {this.state.hits}</h1>
           </div>
         </div>
       )
