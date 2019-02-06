@@ -2,45 +2,32 @@ import React from 'react';
 import { render, fireEvent, cleanup } from 'react-testing-library';
 import 'jest-dom/extend-expect';
 
-import Display from './display';
-import Dashboard from '../Dashboard/dashboard';
+import Dashboard from './dashboard';
+import Display from '../Display/display';
 
 afterEach(cleanup);
 
 describe('Displays the component', () => {
-  it('displays display component', () => {
-    render(<Display />);
-  })
   it('displays dashboard component', () => {
     render(<Dashboard />);
-  })
-})
-
-describe('displays balls, strikes, fouls, and hits', () => {
-  it('displays balls, strikes, fouls, and hits', () => {
-    const { getByText } = render(<Display />);
-
-    getByText(/balls/i);
-    getByText(/strikes/i);
-    getByText(/fouls/i);
-    getByText(/hits/i);
   })
 })
 
 // something is very wrong here!!!!
 describe('strike key works', () => {
   it('strike key works', () => {
+    const props = {strikes: 0}
     const dashboardComp = render(<Dashboard />);
-    const displayCompNum = render(<Display strikes={1}/>)
+    const displayComp = render(<Display {...props} />)
 
     dashboardComp.getByText(/strike/i);
-    displayCompNum.getByText(/strikes/i);
+    displayComp.getByText(/0/i);
 
     const button = dashboardComp.getByText(/strike/i);
     fireEvent.click(button);
     // console.log(button);
 
-    const value = displayCompNum.getByTestId("strikes");
+    const value = displayComp.getByTestId("strikes");
     
     expect(value).toHaveTextContent("0");
   })

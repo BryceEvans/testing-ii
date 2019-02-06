@@ -23,17 +23,9 @@ class Display extends React.Component {
         console.log({ strikes });
         this.setState({ strikes: 0, balls: 0, fouls: 0 });
       }
-      // console.log('Strike pitched!')
-      // let strikes = this.state.strikes + 1;
-      // this.setState({ strikes });
-      // console.log({ strikes });
     }
 
     incrementBall = () => {
-      // console.log('Ball pitched!')
-      // let balls = this.state.balls + 1;
-      // this.setState({ balls });
-      // console.log({ balls });
       if (this.state.balls < 3) {
         let balls = this.state.balls;
         console.log({ balls });
@@ -51,18 +43,10 @@ class Display extends React.Component {
       } else if (this.state.strikes === 2) {
           this.setState({ strikes: this.state.strikes, fouls: this.state.fouls + 1 });
       }
-      // console.log('Foul pitched!')
-      // let fouls = this.state.fouls + 1;
-      // this.setState({ fouls });
-      // console.log({ fouls });
     }
 
     incrementHit = () => {
       this.setState({ hits: this.state.hits + 1, strikes: 0, fouls: 0, balls: 0 })
-      // console.log('Strike pitched!')
-      // let hits = this.state.hits + 1;
-      // this.setState({ hits });
-      // console.log({ hits });
     }
 
     render() {
@@ -76,7 +60,7 @@ class Display extends React.Component {
           hit={this.incrementHit}
           />
           <div className='current-count'>
-            <h1>Strikes: {this.state.strikes}</h1>
+            <h1 data-testid="strikes">Strikes: {this.state.strikes}</h1>
             <h1>Balls: {this.state.balls}</h1>
             <h1>Fouls: {this.state.fouls}</h1>
             <h1>Hits: {this.state.hits}</h1>
